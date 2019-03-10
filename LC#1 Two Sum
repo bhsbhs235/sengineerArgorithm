@@ -1,4 +1,13 @@
 class Solution {
+    /*
+    시간 복잡도 <-> 공간 복잡도 시간이 빨라지면 공간이 필요하고 공간을 안쓰면 시간이 늘어난다
+    대안 1. brute-force 모든 조합시도 2중 루프 n*(n-1) / 2
+        - 시간 : O(n^2)
+        - 공간 : O(1)
+    대안 2. 해쉬맵 사용 루프 1개를 돌면서 이미 봤던 값 해쉬맵에 저장
+        - 시간 : O(n)
+        - 공간 : O(n)
+      */
     public int[] twoSum(int[] nums, int target) {
         Map<Integer, Integer> map = new HashMap<>(); // 키 - 저장된 값, 벨류 - 인덱스
 
