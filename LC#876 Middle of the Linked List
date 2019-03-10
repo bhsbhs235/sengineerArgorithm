@@ -1,0 +1,29 @@
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    /*
+    워커 러너 테크닉
+     walker : 한번에 한칸씩
+     runner : 한번에 두칸씩
+     ## runner가 끝나면 walker는 중간에 와있음 ##
+     이렇게 하면 굳이 링크드 리스트 끝까지 갔다가 다시 돌아가지 않아도 된다
+     */
+    public ListNode middleNode(ListNode head) {
+       ListNode walker = head;
+       ListNode runner = head;
+        while(runner!=null){
+            runner = runner.next;
+            if(runner!=null){
+                walker = walker.next;
+                runner = runner.next;
+            }
+        }
+        return walker;
+    }
+}
