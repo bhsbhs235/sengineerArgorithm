@@ -1,0 +1,29 @@
+class Solution {
+    public boolean isValid(String s) {
+        Stack<Character> stack = new Stack<>();
+        char[] arr = s.toCharArray();
+        for(char c:arr){
+            if(c=='(' || c== '{' || c== '['){
+                stack.push(c);
+            }else if(c==')'){
+                if(stack.size()==0 || stack.pop()!='('){
+                    return false;
+                }
+            }else if(c=='}'){
+                if(stack.size()==0 || stack.pop()!='{'){
+                    return false;
+                }
+            }else if(c==']'){
+                if(stack.size()==0 || stack.pop()!='['){
+                    return false;
+                }
+            }else{
+                return false;
+            }
+          }
+        if(stack.size()!=0){
+            return false;
+        } // (() 일때 for루프를 다돌면 '(' 이 남아있다
+        return true;
+    }
+}
