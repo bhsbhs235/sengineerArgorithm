@@ -1,0 +1,22 @@
+class Solution {
+    public int hammingDistance(int x, int y) {
+        /*
+        a = 3 -> 11
+        b = 2 -> 10
+        
+        a & b = |1|0|  각 비트를 and
+        a | b = |1|1|  각 비트를 or
+        a ^ b = |0|1|  각 비트를 xor 다르면 1 같으면0
+        a >> i; a의 모든 비트를 오른쪽으로 i만큼 밀고 맨 왼쪽을 0으로 채움
+        a << i; a의 모든 비트를 왼쪽으로 i만큼 밀고 맨 오른쪽을 0으로 채움
+        */
+        int xor = x^y;
+        int cnt = 0;
+        for(int i=0; i<32; i++){
+            cnt += (xor>>i) & 1;
+        } 
+     // xor를 하고 나면 각 비트 다른거만 남고 그것을 각 비트(2^i)만큼 밀면서 1인지 비교( & 1)하면서 cnt를 센다
+        
+        return cnt;
+    }
+}
