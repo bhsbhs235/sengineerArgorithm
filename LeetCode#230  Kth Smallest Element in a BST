@@ -1,0 +1,19 @@
+class Solution {
+    int i=0;
+    int result;
+    public int kthSmallest(TreeNode root, int k) {
+        inorder(root,k);
+        return result;
+    }
+    public void inorder(TreeNode root, int k){
+        if( root==null ) return;
+        inorder(root.left,k);
+        i++;
+        if(i == k){
+            result = root.val;
+        }
+        inorder(root.right,k);
+    }
+}
+
+//binary search tree를 inorder 순회하면 저절로 오름차순이 되는 원리를 이용.
